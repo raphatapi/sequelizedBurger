@@ -1,0 +1,81 @@
+body {
+    background-color: black;
+    background: url("../images/bc_resize.gif") no-repeat top left; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.add {
+    margin: 2% -3%;
+}
+
+.heading {
+    font-family: "Righteous", cursive;
+    font-size: 30px;
+    font-weight: bold;
+    color: red;
+    display:block;
+    margin: 0 auto;
+    padding-bottom: 10px;
+  }
+
+ul,li {
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0;
+}
+
+.btnDevour {
+    background: rgb(255, 131, 23);
+    font-family: 'Righteous', cursive;
+    font-weight: bold;
+    color: black;
+    padding: 5px;
+    border: 1px solid #FF851B;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.burgerType {
+    font-size: 25px;
+    color: aquamarine;
+    font-family: 'Righteous', cursive;
+    padding-top: 12px;
+}
+
+#btnCreate {
+    display: block;
+    margin: 0 auto;
+    background: rgb(255, 131, 23);
+    color: black;
+    font-family: 'Righteous', cursive;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid #FF851B;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#textArea {
+    color: red;
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+        background-color: black;
+        background: url("../images/bc_resize.gif") no-repeat center center fixed; 
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: auto;
+    }
+
+    .logo img{
+        width: 100%;
+    }
+}

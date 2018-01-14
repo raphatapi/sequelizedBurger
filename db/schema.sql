@@ -1,0 +1,11 @@
+DROP DATABASE IF EXISTS s6xu95aimln1hriq;
+CREATE DATABASE s6xu95aimln1hriq;
+USE s6xu95aimln1hriq;
+
+CREATE TABLE burgers (
+    id INT NOT NULL AUTO_INCREMENT,
+    burger_name VARCHAR(80) NOT NULL,
+    devoured BOOLEAN NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id)
+);
