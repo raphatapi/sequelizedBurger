@@ -20,15 +20,18 @@
             <div class="leftBurgers text-center">
                 <h2 class="heading headTitle">New Burgers</h2>
                 <ul>
-                    {{#each burgers}} {{#unless this.devoured}}
+                    {{#each burgers}}
+                        {{#unless this.devoured}}
                         <li>
                             <p class="burgerType">{{this.burger_name}}</p>
                             <form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
                                 <input type="hidden" name="devoured" value="true">
+                                <input class="custInput" input type="text" name="customer" placeholder="Customer?">
                                 <button class="btnDevour" type="submit">Devour it</button>
                             </form>
                         </li>
-                    {{/unless}} {{/each}}
+                        {{/unless}}
+                    {{/each}}
                 </ul>
             </div>
         </div>
@@ -36,11 +39,20 @@
             <div class="rightBurgers text-center">
                 <h2 class="heading headTitle">Burgers Devoured</h2>
                 <ul>
-                    {{#each burgers}} {{#if this.devoured}}
-                    <li>
-                        <p class="burgerType">{{this.burger_name}}</p>
-                    </li>
-                    {{/if}} {{/each}}
+                    {{#each burgers}}
+                        {{#if this.devoured}}
+                            {{#if this.Customer.customer}}
+                                <li>
+                                    {{!-- <p class="burgerType">{{this.burger_name}}</p> --}}
+                                    <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}  (This burger was eaten by {{this.Customer.customer}}) " readonly>
+                                </li>
+                            {{else}}
+                                <li>
+                                    <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+                                </li>
+                            {{/if}}
+                        {{/if}}
+                    {{/each}}
                 </ul>
             </div>
         </div>
