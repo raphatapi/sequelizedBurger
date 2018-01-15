@@ -25,9 +25,10 @@
                         <li>
                             <p class="burgerType">{{this.burger_name}}</p>
                             <form method="POST" action="/burger/update?_method=PUT" class="button-size">
-                                <input input type="hidden" type="text" name="burger_id" value={{this.id}}>	
-                                <input class="custInput" input type="text" name="customer" placeholder="Customer?"><br>
-                                <button type="submit" class="btn btn-default">Devour it!</button>
+                                <input input type="hidden" type="text" name="burger_id" value={{this.id}}>
+                                <input class="custInput" input type="text" name="customer" placeholder="Customer?">
+                                <br><br>
+                                <button type="submit" class="btnDevour">Devour it!</button>
                             </form>
                         </li>
                         {{/unless}}
@@ -43,10 +44,11 @@
                         {{#if this.devoured}}
                             {{#if this.Customer.customer}}
                             {{!-- A read-only input field cannot be modified (however, a user can tab to it, highlight it, and copy the text from it). --}}
-                                <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}  (This burger was eaten by {{this.Customer.customer}}) " readonly>
-                    
+                                <li class="burgerType">{{this.burger_name}}</li>
+                                <li class="burgerEater">Devoured by {{this.Customer.customer}}</li>
                             {{else}}
-                                <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
+                                <li class="burgerType">{{this.burger_name}}</li>
+                                <li class="burgerEater">Devoured by magic!</li>
                             {{/if}}
                         {{/if}}
                     {{/each}}

@@ -48,6 +48,13 @@ ul,li {
     padding-top: 12px;
 }
 
+.burgerEater {
+    font-size: 20px;
+    color: #ead001;
+    font-family: 'Righteous', cursive;
+    padding-bottom: 4%;
+}
+
 #btnCreate {
     display: block;
     margin: 0 auto;
