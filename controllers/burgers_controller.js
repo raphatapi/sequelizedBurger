@@ -1,59 +1,65 @@
 var express = require("express");
 var router = express.Router();
-var burger = require("../models");
+var db = require("../models");
 
 router.get("/", function(req, res) {
-  res.redirect("/burgers");
+  res.redirect("/burger");
 });
 
-router.get("/burgers", function(req, res) {
+router.get("/burger", function(req, res) {
   db.Burger.findAll({
     include: [db.Customer],
     order: [
-      "burger_name, ASC"
+      ["burger_name", "ASC"]
     ]
-  }).then(function(result){
+  })
+  .then(function(dbBurger) {
     var hbsObject = {
-      burger: result
+      burger: dbBurger
     };
-    return res.render("index", hbsObject);
+    res.render("index", hbsObject);
   });
 });
 
-router.post("/api/burgers", function(req, res) {
+router.post("/burger/create", function(req, res) {
   db.Burger.create({
-    burger_name: req.body.burger_name
-  }).then(function(result){
-    return res.redirect("/burgers");
+    burger_name: req.body.burger_name,
+    devoured: false
+  }).then(function() {
+    res.redirect("/burger");
   });
 });
 
-router.post("/api/burgers/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
-  if (req.body.customer){
+router.put("/burger/update", function(req, res) {
+  console.log(req.body.customer);
+  if (req.body.customer) {
     db.Customer.create({
       customer: req.body.customer,
       BurgerId: req.body.burger_id
-    }).then(function(result){
-      return db.Burger.update({
-          devoured: true
-        }, {
-          where: {
-            id: req.body.burger_id
-          }
-        });
-      }).then(function(result){
-      res.redirect("/burgers");
+    })
+    .then(function(dbCustomer) {
+      db.Burger.update({
+        devoured: true
+      }, {
+        where: {
+          id: req.body.burger_id
+        }
+      });
+    })
+    .then(function(dbBurger) {
+      res.redirect("/burger");
     });
-  } else {
+  }
+  else {
     db.Burger.update({
       devoured: true
     }, {
       where: {
         id: req.body.burger_id
       }
-    }).then(function(result){
-      res.redirect("/burgers")
+    })
+    .then(function(dbBurger) {
+      res.redirect("/burger");
     });
   }
 });

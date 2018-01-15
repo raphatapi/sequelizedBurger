@@ -7,7 +7,7 @@
             <div class="input text-center">
                 <h2 class="heading headTitle" id="add">Add A Burger</h2>
                 <div class="form-group">
-                    <form method="POST" action="api/burgers" class="addOne text-center">
+                    <form method="POST" action="/burger/create" class="addOne text-center">
                         <textarea id="textArea" type="text" name="burger_name" rows="2" cols="40"></textarea>
                         <button id="btnCreate" type="submit">Create!</button>
                     </form>
@@ -20,14 +20,14 @@
             <div class="leftBurgers text-center">
                 <h2 class="heading headTitle">New Burgers</h2>
                 <ul>
-                    {{#each burgers}}
+                    {{#each burger}}
                         {{#unless this.devoured}}
                         <li>
                             <p class="burgerType">{{this.burger_name}}</p>
-                            <form action="api/burgers/{{this.id}}?_method=PUT" method="POST">
-                                <input type="hidden" name="devoured" value="true">
-                                <input class="custInput" input type="text" name="customer" placeholder="Customer?">
-                                <button class="btnDevour" type="submit">Devour it</button>
+                            <form method="POST" action="/burger/update?_method=PUT" class="button-size">
+                                <input input type="hidden" type="text" name="burger_id" value={{this.id}}>	
+                                <input class="custInput" input type="text" name="customer" placeholder="Customer?"><br>
+                                <button type="submit" class="btn btn-default">Devour it!</button>
                             </form>
                         </li>
                         {{/unless}}
@@ -39,17 +39,14 @@
             <div class="rightBurgers text-center">
                 <h2 class="heading headTitle">Burgers Devoured</h2>
                 <ul>
-                    {{#each burgers}}
+                    {{#each burger}}
                         {{#if this.devoured}}
                             {{#if this.Customer.customer}}
-                                <li>
-                                    {{!-- <p class="burgerType">{{this.burger_name}}</p> --}}
-                                    <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}  (This burger was eaten by {{this.Customer.customer}}) " readonly>
-                                </li>
+                            {{!-- A read-only input field cannot be modified (however, a user can tab to it, highlight it, and copy the text from it). --}}
+                                <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}  (This burger was eaten by {{this.Customer.customer}}) " readonly>
+                    
                             {{else}}
-                                <li>
-                                    <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
-                                </li>
+                                <input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}" readonly>
                             {{/if}}
                         {{/if}}
                     {{/each}}
