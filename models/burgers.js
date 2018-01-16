@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   Burgers.associate = function(models) {
-    Burgers.hasOne(models.Customer, {
+    Burgers.hasOne(models.Customers, {
       foreignKey: {
         allowNull: false
       }
