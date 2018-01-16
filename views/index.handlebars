@@ -8,7 +8,7 @@
                 <h2 class="heading headTitle" id="add">Add A Burger</h2>
                 <div class="form-group">
                     <form method="POST" action="/burger/create" class="addOne text-center">
-                        <textarea id="textArea" type="text" name="burger_name" rows="2" cols="40"></textarea>
+                        <input id="textArea" type="text" name="burger_name">
                         <button id="btnCreate" type="submit">Create!</button>
                     </form>
                 </div>
@@ -24,7 +24,7 @@
                         {{#unless this.devoured}}
                         <li>
                             <p class="burgerType">{{this.burger_name}}</p>
-                            <form method="POST" action="/burger/update?_method=PUT" class="button-size">
+                            <form id="add" method="POST" action="/burger/update?_method=PUT" class="button-size">
                                 <input input type="hidden" type="text" name="burger_id" value={{this.id}}>
                                 <input class="custInput" input type="text" name="customer" placeholder="Customer?">
                                 <br><br>
