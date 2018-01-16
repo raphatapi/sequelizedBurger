@@ -8,10 +8,10 @@ router.get("/", function(req, res) {
 
 router.get("/burger", function(req, res) {
   db.Burgers.findAll({
-    include: [db.Customer]
-    // order: [
-    //   ["burger_name", "ASC"]
-    // ]
+    include: [db.Customer],
+    order: [
+      ["burger_name", "ASC"]
+    ]
   })
   .then(function(dbBurger) {
     var hbsObject = {
