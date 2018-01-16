@@ -7,7 +7,7 @@ router.get("/", function(req, res) {
 });
 
 router.get("/burger", function(req, res) {
-  db.Burger.findAll({
+  db.Burgers.findAll({
     include: [db.Customer]
     // order: [
     //   ["burger_name", "ASC"]
@@ -22,7 +22,7 @@ router.get("/burger", function(req, res) {
 });
 
 router.post("/burger/create", function(req, res) {
-  db.Burger.create({
+  db.Burgers.create({
     burger_name: req.body.burger_name,
     devoured: false
   }).then(function() {
@@ -38,7 +38,7 @@ router.put("/burger/update", function(req, res) {
       BurgerId: req.body.burger_id
     })
     .then(function(dbCustomer) {
-      db.Burger.update({
+      db.Burgers.update({
         devoured: true
       }, {
         where: {
@@ -51,7 +51,7 @@ router.put("/burger/update", function(req, res) {
     });
   }
   else {
-    db.Burger.update({
+    db.Burgers.update({
       devoured: true
     }, {
       where: {
