@@ -2,19 +2,23 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "burger_db",
+    "database": "burgers_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "burger_db",
+    "database": "burgers_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
+    "username": "eee7vqkcf19rvixw",
+    "password": "o4yy1urjwk49np1c",
+    "database": "hp0gi0s9d9jts90l",
+    "host": "ko86t9azcob3a2f9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    "dialect": "mysql",
+    "use_env_variable": "mysql://eee7vqkcf19rvixw:o4yy1urjwk49np1c@ko86t9azcob3a2f9.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/hp0gi0s9d9jts90l"
   }
 }
