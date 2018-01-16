@@ -8,7 +8,7 @@ router.get("/", function(req, res) {
 
 router.get("/burger", function(req, res) {
   db.Burgers.findAll({
-    include: [db.Customer],
+    include: [db.Customers],
     order: [
       ["burger_name", "ASC"]
     ]
@@ -33,7 +33,7 @@ router.post("/burger/create", function(req, res) {
 router.put("/burger/update", function(req, res) {
   console.log(req.body.customer);
   if (req.body.customer) {
-    db.Customer.create({
+    db.Customers.create({
       customer: req.body.customer,
       BurgerId: req.body.burger_id
     })
