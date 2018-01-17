@@ -25,5 +25,8 @@
     "mysql2": "^1.5.1",
     "sequelize": "^4.31.2",
     "sequelize-cli": "^3.2.0"
+  },
+  "engines": {
+    "node": "4.1.1"
   }
 }
