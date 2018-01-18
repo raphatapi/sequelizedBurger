@@ -3,13 +3,11 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Burgers', [
-      {burger_name: "Big Mac", devoured: false, createdAt: new Date(), updatedAt: new Date()},
-      {burger_name: "Whooper", devoured: false, createdAt: new Date(), updatedAt: new Date()},
-      {burger_name: "Cheezburger", devoured: false, createdAt: new Date(), updatedAt: new Date()},
-      {burger_name: "Baconator", devoured: false, createdAt: new Date(), updatedAt: new Date()},
-      {burger_name: "Quarter Pounder", devoured: false, createdAt: new Date(), updatedAt: new Date()},
-      {burger_name: "McRoyal", devoured: false, createdAt: new Date(), updatedAt: new Date()},
-      {burger_name: "Double Double", devoured: false, createdAt: new Date(), updatedAt: new Date()}
+      {burger_name: "Big Kahuna Burger", devoured: false, createdAt: new Date(), updatedAt: new Date()},
+      {burger_name: "Krusty Burger", devoured: false, createdAt: new Date(), updatedAt: new Date()},
+      {burger_name: "Krabby Patty", devoured: false, createdAt: new Date(), updatedAt: new Date()},
+      {burger_name: "Veggie Burger", devoured: false, createdAt: new Date(), updatedAt: new Date()},
+      {burger_name: "Pineapple Burger", devoured: false, createdAt: new Date(), updatedAt: new Date()}
     ], {});
   },
 
